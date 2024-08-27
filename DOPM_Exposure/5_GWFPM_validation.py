@@ -8,12 +8,12 @@ from sklearn.metrics import r2_score
 input_path = "./Sample data/input/"
 output_path = "./Sample data/output/"
 
-Emission = pd.read_excel(input_path + "Point_emission_sources.xlsx", index_col='FID')
+Emission = pd.read_excel(input_path + "Emission_sources.xlsx", index_col='FID')
 Sites_receptor = pd.read_excel(input_path + "Monitoring_sites.xlsx", index_col='FID')
 Efficiency = pd.read_excel(input_path + "Emission_efficiency.xlsx", index_col='FID')
 
 # Gaussian weighting function-aided Proximity Model
-# 1. calculate Euclidean distance from each Pes to each Vr
+# 1. calculate Euclidean distance from each emission source to each receptor
 Distance = []
 for i in range(0, len(Emission)):
     Dis_sum = []
@@ -24,7 +24,7 @@ for i in range(0, len(Emission)):
     Distance.append(Dis_sum)
 result_1 = pd.DataFrame(data=Distance, index=Emission.index, columns=Sites_receptor.index.T)
 
-# 2. extract the minimum distance points which distance <= 50km
+# 2. extract the minimum distance points which distance <= 9.5km
 result_2 = result_1.T
 b = 9500.0
 Results_b = pd.DataFrame()
@@ -89,6 +89,6 @@ results = {
     'Sig': [linear_p, quadratic_p, cubic_p]
 }
 results_df = pd.DataFrame(results)
-results_df.to_excel(output_path + 'model_fitting_results.xlsx', index=False)
+results_df.to_excel(output_path + 'GWFPM_model_fitting_results.xlsx', index=False)
 
 print("Validation -- GWFPM -- finished!")
