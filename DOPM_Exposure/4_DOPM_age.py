@@ -4,8 +4,8 @@ import math
 input_path = "./Sample data/input/"
 output_path = "./Sample data/output/"
 
-Emission = pd.read_excel(input_path + "Point_emission_sources.xlsx", index_col='FID')
-Age_receptor = pd.read_csv(input_path + "Age_based_virtual_receptors.txt", sep=',', index_col='FID')
+Emission = pd.read_excel(input_path + "Emission_sources.xlsx", index_col='FID')
+Age_receptor = pd.read_csv(input_path + "Age_guided_virtual_receptors.txt", sep=',', index_col='FID')
 Efficiency = pd.read_excel(input_path + "Emission_efficiency.xlsx", index_col='FID')
 
 # Demographic Optimization Proximity Model
@@ -20,7 +20,7 @@ for i in range(0, len(Emission)):
     Distance.append(Dis_sum)
 result_1 = pd.DataFrame(data=Distance, index=Emission.index, columns=Age_receptor.index.T)
 
-# 2. extract the minimum distance points which distance <= 9500.0m
+# 2. extract the minimum distance points which distance <= 9.5km
 b = 9500.0
 result_2 = result_1.T
 
@@ -37,6 +37,6 @@ for i in range(0, len(result_2)):
 
 Risk_sum = pd.DataFrame(data=Risk_sum, index=Age_receptor.index, columns=['R_age'])
 Results_b = pd.concat([Results_b, Risk_sum], axis=1)
-Results_b.to_excel(output_path + "R_DOPM_page.xlsx", index=True)
+Results_b.to_excel(output_path + "R_DOPM_age.xlsx", index=True)
 
 print("Model -- DOPM -- finish!")
