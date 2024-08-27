@@ -4,8 +4,8 @@ import math
 input_path = "./Sample data/input/"
 output_path = "./Sample data/output/"
 
-Emission = pd.read_excel(input_path + "Point_emission_sources.xlsx", index_col='FID')
-Pop_receptor = pd.read_csv(input_path + "Pop_virtual_receptors.txt", sep=',', index_col='FID')
+Emission = pd.read_excel(input_path + "Emission_sources.xlsx", index_col='FID')
+Pop_receptor = pd.read_csv(input_path + "Traditional_virtual_receptors.txt", sep=',', index_col='FID')
 Efficiency = pd.read_excel(input_path + "Emission_efficiency.xlsx", index_col='FID')
 
 # Gaussian weighting function-aided Proximity Model
@@ -20,7 +20,7 @@ for i in range(0, len(Emission)):
     Distance.append(Dis_sum)
 result_1 = pd.DataFrame(data=Distance, index=Emission.index, columns=Pop_receptor.index.T)
 
-# 2. extract the minimum distance points which distance <= bandwidth
+# 2. extract the minimum distance points which distance <= 9.5km
 b = 9500.0
 result_2 = result_1.T
 
