@@ -9,7 +9,7 @@ input_path = './Sample data/input/'
 output_path = './Sample data/output/'
 
 #  Step 1 ： acquire parameters in cubic function
-df = pd.read_excel(input_path + "Fitting_data_age.xlsx", index_col='FID')
+df = pd.read_excel(input_path + "DOPM_fitting_result_age.xlsx", index_col='FID')
 
 def cubic_func(X, a, b, c, d):
     return a * X**3 + b * X**2 + c * X + d
@@ -24,8 +24,8 @@ cubic_p = cubic_model.f_pvalue
 cubic_eq = f"Y = {params_cubic[0]:.8f} * X^3 + {params_cubic[1]:.8f} * X^2 + {params_cubic[2]:.8f} * X + {params_cubic[3]:.8f}"
 
 # Step 2 : prediction on Age-guided receptors
-Age_receptor = pd.read_csv(input_path + "Age_guided_receptors.txt", sep=',', index_col='FID')
-Emission = pd.read_excel(input_path + "Point_emission_sources.xlsx", index_col='FID')
+Age_receptor = pd.read_csv(input_path + "Age_guided_virtual_receptors.txt", sep=',', index_col='FID')
+Emission = pd.read_excel(input_path + "Emission_sources.xlsx", index_col='FID')
 Efficiency = pd.read_excel(input_path + "Emission_efficiency.xlsx", index_col='FID')
 
 Distance = []
