@@ -8,7 +8,7 @@ from sklearn.metrics import r2_score
 input_path = "./Sample data/input/"
 output_path = "./Sample data/output/"
 
-Emission = pd.read_excel(input_path + "Point_emission_sources.xlsx", index_col='FID')
+Emission = pd.read_excel(input_path + "Emission_sources.xlsx", index_col='FID')
 Sites_receptor = pd.read_excel(input_path + "Monitoring_sites.xlsx", index_col='FID')
 Efficiency = pd.read_excel(input_path + "Emission_efficiency.xlsx", index_col='FID')
 
@@ -93,6 +93,6 @@ results = {
     'Sig': [linear_p, quadratic_p, cubic_p]
 }
 results_df = pd.DataFrame(results)
-results_df.to_excel(output_path + 'model_fitting_results_age_1.xlsx', index=False)
+results_df.to_excel(output_path + 'DOPM_fitting_results_age.xlsx', index=False)
 
 print("Validation -- DOPM -- finished!")
