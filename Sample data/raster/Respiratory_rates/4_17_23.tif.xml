@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata xml:lang="zh"><Esri><CreaDate>20231225</CreaDate><CreaTime>16542400</CreaTime><ArcGISFormat>1.0</ArcGISFormat><SyncOnce>TRUE</SyncOnce><DataProperties><lineage><Process ToolSource="e:\arcgis\desktop10.5\ArcToolbox\Toolboxes\Spatial Analyst Tools.tbx\RasterCalculator" Date="20231225" Time="165424">RasterCalculator ""wuhan_f_10_2019_100m.tif" + "wuhan_m_10_2019_100m.tif"" I:\Task_Exposure\4.pop\Respiratory_rates\4_17_23.tif</Process></lineage></DataProperties></Esri></metadata>
