@@ -5,7 +5,7 @@ import math
 input_path = "./Sample data/input/"
 output_path = "./Sample data/output/"
 
-Emission = pd.read_excel(input_path + "Point_emission_sources.xlsx", index_col='FID')
+Emission = pd.read_excel(input_path + "Emission_sources.xlsx", index_col='FID')
 Sites_receptor = pd.read_excel(input_path + "Monitoring_sites.xlsx", index_col='FID')
 Efficiency = pd.read_excel(input_path + "Emission_efficiency.xlsx", index_col='FID')
 
